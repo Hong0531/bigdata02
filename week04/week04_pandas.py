@@ -1,8 +1,17 @@
+import pandas as pd
 import seaborn as sns
 
+def square(x):
+    return x ** 2
+def cube(x):
+    return x ** 3
+
 mpg = sns.load_dataset("mpg")
-
-# print(mpg.value_counts())
-
-# print(df.value_counts())
-# print(df['city'].nunique())
+df = pd.DataFrame([
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9]
+], columns=['A', 'B', 'C'], index=[1, 2, 3])
+print(df)
+print(df.apply(square))
+print(df.apply(cube))
