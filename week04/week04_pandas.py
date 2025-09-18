@@ -1,17 +1,10 @@
-import pandas as pd
 import seaborn as sns
 
-def square(x):
-    return x ** 2
-def cube(x):
-    return x ** 3
-
 mpg = sns.load_dataset("mpg")
-df = pd.DataFrame([
-    [1, 4, 7],
-    [2, 5, 8],
-    [3, 6, 9]
-], columns=['A', 'B', 'C'], index=[1, 2, 3])
-print(df)
-print(df.apply(square))
-print(df.apply(cube))
+
+# print(mpg.isnull().sum())
+# print(mpg.isnull())
+# print(mpg[mpg['horsepower'].isnull() == True])
+# print(mpg[mpg['horsepower'].isnull()])
+mpg_nan = mpg[mpg['horsepower'].isnull()]
+print(mpg_nan[['mpg','horsepower','displacement', 'origin']])
